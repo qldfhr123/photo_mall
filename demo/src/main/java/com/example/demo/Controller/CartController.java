@@ -34,7 +34,7 @@ public class CartController {
 	public ResponseEntity getCartItems(@CookieValue(value = "token", required = false) String token) {
 		
 		if(!jwtService.isValid(token)) {
-			// 만료된 엑세스
+			// 만료된 엑세스 
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
 		}
 		int memberId = jwtService.getId(token);
